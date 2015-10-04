@@ -42,6 +42,13 @@ $config = [
             'cacheAlias' => 'assets/gallery_thumbnails',
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '<controller>/<action>' => '<controller>/<action>',
+            ]
+        ],
     ],
     'params' => $params,
 ];

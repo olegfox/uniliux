@@ -18,14 +18,15 @@ class FrontendAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'frontend/css/main.css',
+        'frontend/styles/slick.css',
+        'frontend/styles/main.css'
     ];
     public $js = [
-        'frontend/bower_components/jquery/dist/jquery.js',
-        'frontend/bower_components/imagesloaded/imagesloaded.pkgd.min.js',
-        'frontend/bower_components/masonry/dist/masonry.pkgd.min.js',
-        'frontend/javascripts/main.js',
-        'frontend/javascripts/click.menu.js'
+        'frontend/bower_components/modernizr/modernizr.js',
+        'frontend/bower_components/jquery/dist/jquery.min.js',
+        'frontend/bower_components/slick-carousel/slick/slick.min.js',
+        'frontend/scripts/pace.min.js',
+        'frontend/scripts/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset'

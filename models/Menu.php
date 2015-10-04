@@ -80,4 +80,15 @@ class Menu extends \yii\db\ActiveRecord
     {
         return new MenuQuery(get_called_class());
     }
+
+    public static function getItems()
+    {
+        $items = [];
+        $models = Menu::find()->all();
+        foreach($models as $model) {
+            $items[] = ['title' => $model->title, 'slug' => $model->slug];
+        }
+
+        return $items;
+    }
 }

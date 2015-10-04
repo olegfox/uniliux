@@ -14,10 +14,9 @@ use kartik\datetime\DateTimePicker;
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
-    <?php echo $model->getVideo()->html; ?>
-
     <?php
         if(is_object($model->getVideo())){
+            echo $model->getVideo()->html;
             $model->videoUrl = $model->getVideo()->link;
         }
     ?>

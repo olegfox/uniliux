@@ -164,6 +164,10 @@ class News extends \yii\db\ActiveRecord
                 $photo->delete();
             }
 
+            if(is_object($this->getVideo())){
+                $this->getVideo()->delete();
+            }
+
             return true;
         } else {
             return false;
