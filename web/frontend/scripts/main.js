@@ -16,12 +16,4 @@ $(function(){
       'width': $('body').width()
     });
   });
-
-  // Форма поиска
-  $("a.search").on("click", function () {
-    return $("body").toggleClass("open-search"), $(".search-container input").first().focus(), !1
-  });
-  $(".search-container form").submit(function () {
-    return $("input[name=q]").val() ? void 0 : !1
-  });
 });

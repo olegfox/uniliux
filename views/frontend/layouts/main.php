@@ -38,12 +38,16 @@ FrontendAsset::register($this);
     </div>
     <div class="inner">
         <a class="logo" href="/"></a>
-        <div class="search">
-            <a class="search" href="#"></a>
+        <div class="socials">
+            <a href="#"><img src="/frontend/images/fb.jpg" alt="" width="80px" height="80px"/></a>
         </div>
         <div class="menu">
             <?php foreach (Menu::getItems() as $item): ?>
-                <a href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
+                <?php if($item['title'] == 'Новости') { ?>
+                    <a href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
+                <?php } else { ?>
+                    <a href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
+                <?php } ?>
             <?php endforeach; ?>
             <a href="#">EN</a>
         </div>

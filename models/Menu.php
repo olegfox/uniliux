@@ -84,7 +84,7 @@ class Menu extends \yii\db\ActiveRecord
     public static function getItems()
     {
         $items = [];
-        $models = Menu::find()->all();
+        $models = Menu::find()->allOrder();
         foreach($models as $model) {
             $items[] = ['title' => $model->title, 'slug' => $model->slug];
         }
