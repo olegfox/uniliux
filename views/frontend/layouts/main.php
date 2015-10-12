@@ -45,6 +45,8 @@ FrontendAsset::register($this);
             <?php foreach (Menu::getItems() as $item): ?>
                 <?php if($item['title'] == 'Новости') { ?>
                     <a href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
+                <?php } elseif($item['title'] == 'Контакты') { ?>
+                    <a href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
                 <?php } else { ?>
                     <a href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
                 <?php } ?>

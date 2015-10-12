@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\News;
 use app\models\Slider;
+use app\models\Menu;
 
 class SiteController extends Controller
 {
@@ -36,6 +37,20 @@ class SiteController extends Controller
 
         return $this->render('/frontend/news/index', [
             'news' => $news
+        ]);
+    }
+
+    /**
+     * Страница контактов
+     *
+     * @return string
+     */
+    public function actionContacts()
+    {
+        $page = Menu::findOne(['slug' => 'kontakty']);
+
+        return $this->render('/frontend/contacts/index', [
+            'page' => $page
         ]);
     }
 }
