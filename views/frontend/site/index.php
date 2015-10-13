@@ -135,3 +135,5 @@ $this->title = 'Uniliux';
     </article>
 
 </div>
+
+<?php $this->registerJsFile('frontend/scripts/pace.min.js'); ?>

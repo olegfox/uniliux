@@ -49,6 +49,9 @@ $config = [
                 '<controller>/<action>' => '<controller>/<action>',
             ]
         ],
+        'opengraph' => [
+            'class' => 'dragonjet\opengraph\OpenGraph',
+        ],
     ],
     'params' => $params,
 ];

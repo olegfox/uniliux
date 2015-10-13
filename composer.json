@@ -23,7 +23,8 @@
         "yiisoft/yii2-jui": "~2.0.0",
         "2amigos/yii2-ckeditor-widget" : "~1.0",
         "iutbay/yii2-kcfinder" : "*",
-        "kartik-v/yii2-widget-datetimepicker": "*"
+        "kartik-v/yii2-widget-datetimepicker": "*",
+        "dragonjet/yii2-opengraph": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

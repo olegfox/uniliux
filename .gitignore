@@ -34,6 +34,6 @@ phpunit.phar
 # ignore sub directory for dev installed apps and extensions
 /apps
 /extensions
-
+/config
 /web/assets
 /web/uploads

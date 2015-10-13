@@ -1,3 +1,10 @@
+function getParameterByName(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(location.search);
+  return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 $(function(){
   //  Инициализация слайдера на главной
   $('.slider').slick({
@@ -16,4 +23,6 @@ $(function(){
       'width': $('body').width()
     });
   });
+
+  $('.fixed-header').width($('.wrap-content').width());
 });

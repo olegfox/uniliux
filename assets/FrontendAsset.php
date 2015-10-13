@@ -19,14 +19,20 @@ class FrontendAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'frontend/styles/slick.css',
-        'frontend/styles/main.css'
+        'frontend/scripts/SidebarTransitions/component.css',
+        'frontend/styles/social-likes_birman.css',
+        'frontend/styles/main.css',
+        'frontend/styles/animate.css'
     ];
     public $js = [
         'frontend/bower_components/modernizr/modernizr.js',
         'frontend/bower_components/jquery/dist/jquery.min.js',
         'frontend/bower_components/slick-carousel/slick/slick.min.js',
-        'frontend/scripts/pace.min.js',
         'frontend/scripts/main.js',
+        'frontend/scripts/SidebarTransitions/classie.js',
+        'frontend/scripts/SidebarTransitions/sidebarEffects.js',
+        'frontend/scripts/wow.min.js',
+        'frontend/scripts/social-likes.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset'
