@@ -57,7 +57,7 @@ FrontendAsset::register($this);
                                 <a href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
                             <?php } ?>
                         <?php endforeach; ?>
-                        <a href="#">EN</a>
+<!--                        <a href="#">EN</a>-->
                     </div>
                 </div>
             </header>
@@ -76,50 +76,20 @@ FrontendAsset::register($this);
             </div>
             <!-- end Search -->
 
-            <div class="wrap-content">
-                <!-- Main -->
-                <div class="main">
-                    <?= $content ?>
-                </div>
-                <!-- end Main -->
+            <!-- Main -->
+            <div class="wrap-content"></div>
+            <div class="main">
+                <?= $content ?>
             </div>
+            <!-- end Main -->
 
             <!-- Footer -->
             <footer>
                 <div class="content">
-                    <article class="footer_1 shown">
-                        <div class="inner">
-                            <h1>О нас</h1>
-
-                            <p>ArtManagement предоставляет услуги в области PR-сопровождения культурных проектов с 2009 года.<br>За
-                                шесть лет работы мы накопили опыт в осуществлении крупных международных и российских проектов,
-                                которым были посвящены сотни публикаций в СМИ.<br>Агентство выполняет полный цикл работ — от
-                                разработки PR-стратегии мероприятия до формирования итогового пресс-отчета. Среди наших услуг также
-                                проведение пресс-конференций, организация пресс-туров, работа с новыми медиа.</p>
-                        </div>
-                    </article>
-
-                    <article class="footer_2 shown">
-                        <div class="inner">
-                            <p>105120, Россия, Москва,<br>Нижняя Сыромятническая ул., 10 стр. 4, этаж 4, офис 410<br>+7
-                                (499) 753-02-81<br><a href="mailto:pr@artmanagement.ru">pr@artmanagement.ru</a></p>
-                        </div>
-                    </article>
-
-                    <article class="footer_3 shown">
-                        <div class="inner">
-                            <a class="soc facebook" href="https://www.facebook.com/pages/%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F-Artmanagement/111570985528105" target="_blank"></a><a class="soc vkontakte" href="http://vk.com/artguideru" target="_blank"></a>
-                        </div>
-                    </article>
-
-                    <article class="footer_4 shown">
-                        <div class="inner">
-                            <p>@ 2009—2015 ArtManagement.<br>Сделано в <a href="http://charmerstudio.com/" target="_blank">Charmer</a></p>
-                        </div>
-                    </article>
-
+                    <p>Адрес представительства в Москве: Ломоносовский проспект, 29 корпус 2, 119 192 - Москва - Россия</p>
+                    <p>Телефон: +7 (495) 225-70-30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Электронная почта:
+                        <a href="mailto:russia@uniliux.ru">russia@uniliux.ru</a></p>
                 </div>
-
             </footer>
             <!-- end Footer -->
         </div>

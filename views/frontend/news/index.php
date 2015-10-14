@@ -6,7 +6,7 @@ use himiklab\thumbnail\EasyThumbnailImage;
 /* @var $this yii\web\View */
 if(isset($newsOne)) {
     if(strlen($newsOne->meta_title) > 0){
-        $this->title = $factoryOne->meta_title;
+        $this->title = $newsOne->meta_title;
         $this->registerMetaTag(['property'=>'og:title', 'content'=>$newsOne->meta_title], 'og:title');
     } else {
         $this->title = $newsOne->title;
@@ -17,7 +17,7 @@ if(isset($newsOne)) {
     $this->registerMetaTag(['keywords' => $newsOne->meta_keywords]);
     $this->registerMetaTag(['property'=>'og:description', 'content'=>$newsOne->meta_description], 'og:description');
     if(strlen($newsOne->img) > 0) {
-        $this->registerMetaTag(['property' => 'og:image', 'content' => 'http://' . $_SERVER['HTTP_HOST'] . EasyThumbnailImage::thumbnailFileUrl('uploads/factory/' . $newsOne->img, 300, 300, EasyThumbnailImage::THUMBNAIL_OUTBOUND)], 'og:image');
+        $this->registerMetaTag(['property' => 'og:image', 'content' => 'http://' . $_SERVER['HTTP_HOST'] . EasyThumbnailImage::thumbnailFileUrl('uploads/news/' . $newsOne->img, 300, 300, EasyThumbnailImage::THUMBNAIL_OUTBOUND)], 'og:image');
     } else {
         $this->registerMetaTag(['property' => 'og:image', 'content' => 'http://' . $_SERVER['HTTP_HOST'] . '/frontend/images/logo.png'], 'og:image');
     }

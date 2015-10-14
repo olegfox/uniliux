@@ -30,7 +30,6 @@ if(isset($factoryOne)) {
     $this->registerMetaTag(['property' => 'og:image', 'content' => 'http://' . $_SERVER['HTTP_HOST'] . '/frontend/images/logo.png'], 'og:image');
 }
 ?>
-?>
 
 <div class="content">
 
@@ -39,9 +38,6 @@ if(isset($factoryOne)) {
             <div>
                 <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-text="<?php echo urlencode(file_get_contents('http://' . $_SERVER['HTTP_HOST'] . Url::to(['/site/factorycontent', 'slug' => $item->slug]))); ?>">
                     <div class="block-img" style="background-image: url(/uploads/factory/<?php echo $item->img; ?>); background-size: cover;"></div>
-                    <div class="block-cont">
-                        <div class="block-title"><?php echo $item->title; ?></div>
-                    </div>
                 </a>
             </div>
         <?php endforeach; ?>
