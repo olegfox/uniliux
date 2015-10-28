@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\Menu;
-use app\models\MenuSearch;
+use app\models\Client;
+use app\models\ClientSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * MenuController implements the CRUD actions for Works model.
+ * ClientController implements the CRUD actions for Client model.
  */
-class MenuController extends Controller
+class ClientController extends Controller
 {
     public $layout = '@app/views/backend/layouts/main';
 
@@ -22,14 +22,14 @@ class MenuController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all Menu models.
+     * Lists all Client models.
      * @return mixed
      */
     public function actionIndex()
@@ -38,47 +38,47 @@ class MenuController extends Controller
             return $this->redirect(['admin/login']);
         }
 
-        $searchModel = new MenuSearch();
+        $searchModel = new ClientSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('/backend/menu/index', [
+        return $this->render('/backend/client/index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Menu model.
+     * Displays a single Client model.
      * @param integer $id
      * @return mixed
      */
     public function actionView($id)
     {
-        return $this->render('/backend/menu/view', [
+        return $this->render('/backend/client/view', [
             'model' => $this->findModel($id),
         ]);
     }
 
     /**
-     * Creates a new Menu model.
+     * Creates a new Client model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Menu();
+        $model = new Client();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('/backend/menu/create', [
+            return $this->render('/backend/client/create', [
                 'model' => $model,
             ]);
         }
     }
 
     /**
-     * Updates an existing Menu model.
+     * Updates an existing Client model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -88,16 +88,21 @@ class MenuController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->password = password_hash($model->passwordText, PASSWORD_DEFAULT);
+            $model->save();
+            if($model->is_active){
+                $model->sendMessageWithPassword();
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('/backend/menu/update', [
+            return $this->render('/backend/client/update', [
                 'model' => $model,
             ]);
         }
     }
 
     /**
-     * Deletes an existing Menu model.
+     * Deletes an existing Client model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -106,19 +111,19 @@ class MenuController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['/backend/client/index']);
     }
 
     /**
-     * Finds the Works model based on its primary key value.
+     * Finds the Client model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Menu the loaded model
+     * @return Client the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Menu::findOne($id)) !== null) {
+        if (($model = Client::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -8,6 +8,10 @@ use app\models\News;
 use app\models\Factory;
 use app\models\Slider;
 use app\models\Menu;
+use app\models\Catalog;
+use app\models\ClientLoginForm;
+use app\models\ClientRegForm;
+use app\models\Client;
 
 class SiteController extends Controller
 {
@@ -21,9 +25,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $sliders = Slider::find()->all();
+        $news = News::find()->orderBy(['date' => SORT_DESC])->limit(3)->all();
+        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->limit(3)->all();
 
         return $this->render('/frontend/site/index', [
-            'sliders' => $sliders
+            'sliders' => $sliders,
+            'news' => $news,
+            'factories' => $factories
         ]);
     }
 
@@ -148,4 +156,105 @@ class SiteController extends Controller
             'page' => $page
         ]);
     }
+
+    /**
+     * Страница каталогов
+     *
+     * @return string
+     */
+    public function actionCatalogs()
+    {
+        $page = Menu::findOne(['slug' => 'katalogi']);
+
+        $params = [
+            'page' => $page
+        ];
+
+        if (!Yii::$app->user->isGuest){
+            $catalogs = Catalog::find()->all();
+            $params = array_merge($params, [
+                'catalogs' => $catalogs
+            ]);
+        }
+
+        return $this->render('/frontend/catalog/index', $params);
+    }
+
+    /**
+     * Регистрация пользователя в каталоге
+     *
+     * @return string|\yii\web\Response
+     */
+    public function actionReg()
+    {
+        if(Yii::$app->user->isGuest){
+            $request = Yii::$app->request;
+
+            $model = new ClientRegForm();
+
+            if($request->isPost) {
+                $model->setAttributes(Yii::$app->request->post()['ClientRegForm'], false);
+
+                if ($model->validate()):
+                    if ($user = $model->reg()):
+                        Yii::$app->session->setFlash('success', 'Поздравляем регистрация прошла успешно! После проверки, вам будет разрешен доступ в каталог.');
+                        $model = new ClientRegForm();
+                    else:
+                        Yii::$app->session->setFlash('error', 'Возникла ошибка при регистрации.');
+                        Yii::error('Ошибка при регистрации');
+//                return $this->refresh();
+                    endif;
+                endif;
+            }
+
+            return $this->render(
+                '/frontend/client/reg',
+                [
+                    'model' => $model
+                ]
+            );
+        }
+
+        return $this->redirect('/site/catalogs/');
+    }
+
+    /**
+     * Аутентификация пользователя
+     *
+     * @return string|\yii\web\Response
+     */
+    public function actionLogin()
+    {
+        if(Yii::$app->user->isGuest){
+            $model = new ClientLoginForm();
+
+            if ($model->load(Yii::$app->request->post()) && $model->login()):
+                return $this->redirect('/site/catalogs/');
+            endif;
+
+            $params = [
+                'model' => $model
+            ];
+
+            return $this->render(
+                '/frontend/client/login',
+                $params
+            );
+        }
+
+        return $this->redirect('/site/catalogs/');
+    }
+
+    /**
+     * Logout пользователя
+     *
+     * @return string|\yii\web\Response
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->redirect('/site/catalogs/');
+    }
+
 }

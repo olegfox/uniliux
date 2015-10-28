@@ -51,6 +51,8 @@ FrontendAsset::register($this);
                                 <a href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
                             <?php } elseif($item['title'] == 'Фабрики') { ?>
                                 <a href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
+                            <?php } elseif($item['title'] == 'Каталоги') { ?>
+                                <a href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
                             <?php } elseif($item['title'] == 'Контакты') { ?>
                                 <a href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
                             <?php } else { ?>

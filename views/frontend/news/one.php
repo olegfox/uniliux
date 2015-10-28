@@ -5,15 +5,15 @@ use himiklab\thumbnail\EasyThumbnailImage;
 
 ?>
 
-<?php if(count($newsOne->getPhotos()) > 0) { ?>
+<?php if(strlen($newsOne->img) > 0) { ?>
 <div class="close"></div>
 <div class="slider">
-    <?php foreach ($newsOne->getPhotos() as $photo): ?>
+<!--    --><?php //foreach ($newsOne->getPhotos() as $photo): ?>
     <div class="wrap-slider">
-        <div class="slider" style="background: url(/uploads/news/<?php echo $photo->link ?>) center center no-repeat; background-size: cover;">
+        <div class="slider" style="background: url(/uploads/news/<?php echo $newsOne->img ?>) center center no-repeat; background-size: cover;">
         </div>
     </div>
-    <?php endforeach; ?>
+<!--    --><?php //endforeach; ?>
 </div>
 <div class="wrap-head">
     <div class="head">

@@ -25,24 +25,24 @@ use kartik\datetime\DateTimePicker;
 
     <?= $form->field($model, 'imgFile')->fileInput() ?>
 
-    <?php if(count($model->getPhotos()) > 0){ ?>
-        <table class="table">
-            <thead>
-            <th>Удалить</th>
-            <th>Фото</th>
-            </thead>
-            <tbody>
-            <?php foreach($model->getPhotos() as $photo) { ?>
-                <tr>
-                    <td><input name="photos[]" type="checkbox" value="<?php echo $photo->id; ?>"/></td>
-                    <td><a href="/uploads/news/<?php echo $photo->link;  ?>" target="_blank"><img src="/uploads/news/<?php echo $photo->link;  ?>" alt="/uploads/news/<?php echo $photo->link;  ?>" width="50px" height="50px" /></a></td>
-                </tr>
-            <?php } ?>
-            </tbody>
-        </table>
-    <?php } ?>
-
-    <?= $form->field($model, 'photos[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
+<!--    --><?php //if(count($model->getPhotos()) > 0){ ?>
+<!--        <table class="table">-->
+<!--            <thead>-->
+<!--            <th>Удалить</th>-->
+<!--            <th>Фото</th>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            --><?php //foreach($model->getPhotos() as $photo) { ?>
+<!--                <tr>-->
+<!--                    <td><input name="photos[]" type="checkbox" value="--><?php //echo $photo->id; ?><!--"/></td>-->
+<!--                    <td><a href="/uploads/news/--><?php //echo $photo->link;  ?><!--" target="_blank"><img src="/uploads/news/--><?php //echo $photo->link;  ?><!--" alt="/uploads/news/--><?php //echo $photo->link;  ?><!--" width="50px" height="50px" /></a></td>-->
+<!--                </tr>-->
+<!--            --><?php //} ?>
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    --><?php //} ?>
+<!---->
+<!--    --><?//= $form->field($model, 'photos[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

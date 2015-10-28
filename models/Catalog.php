@@ -97,6 +97,11 @@ class Catalog extends \yii\db\ActiveRecord
         return new CatalogQuery(get_called_class());
     }
 
+    public function getFileNameForDownload(){
+        $ext = pathinfo('uploads/catalog/' . $this->file, PATHINFO_EXTENSION);
+        return $this->title . '.' .$ext;
+    }
+
     public function uploadFile()
     {
         if ($this->validate()) {

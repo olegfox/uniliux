@@ -1,4 +1,6 @@
 <?php
+
+use yii\helpers\Url;
 use himiklab\thumbnail\EasyThumbnailImage;
 
 /* @var $this yii\web\View */
@@ -15,124 +17,33 @@ $this->title = 'Uniliux';
 
 <div class="content">
 
-    <article class="medium-height shown">
-        <a class="inner" href="#" style="background-color: #39bfa9">
-            <div class="block-content">
-                <div class="block-title" style="color: #39bfa9">Выставка</div>
-                <div class="block-dates">Ледокол «Ленин», D.E.V.E. Gallery<br>
-                    <nobr>сентябрь 2013</nobr>
-                    <span class="long-line"></span>
-                    <nobr>январь 2014</nobr>
-                </div>
-                <div class="block-name">Ленин: Ледокол</div>
+    <div class="factory-list factory-list-main">
+        <h1>Фабрики</h1>
+        <?php foreach ($factories as $factory): ?>
+            <div>
+                <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $factory->slug]); ?>">
+                    <div class="block-img" style="background-image: url(/uploads/factory/<?php echo $factory->img; ?>); background-size: cover;"></div>
+                </a>
             </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture1.jpg)"></div>
-        </a>
-    </article>
+        <?php endforeach; ?>
+    </div>
 
-    <article class="small-height shown">
-        <a class="inner" href="#" style="background-color: #f23d88">
-            <div class="block-content">
-                <div class="block-title" style="color: #f23d88">Биеннале</div>
-                <div class="block-dates">Здание типографии «Уральский рабочий»<br>
-                    <nobr>сентябрь 2010</nobr>
-                    <span class="long-line"></span>
-                    <nobr>октябрь 2010</nobr>
-                </div>
-                <div class="block-name">1-я Уральская индустриальная биеннале современного искусства</div>
+    <div class="news-list news-list-main">
+        <h1>Новости</h1>
+        <?php foreach ($news as $item): ?>
+            <div>
+                <a class="inner" href="<?php echo Url::to(['/site/news', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-text="<?php echo urlencode(file_get_contents('http://' . $_SERVER['HTTP_HOST'] . Url::to(['/site/newscontent', 'slug' => $item->slug]))); ?>">
+                    <div class="block-img" style="background-image: url(/uploads/news/<?php echo $item->img; ?>); background-size: cover;"></div>
+                    <div class="block-cont">
+                        <div class="block-dates">
+                            <nobr><?php echo date('d/m/Y', strtotime($item->date)); ?></nobr>
+                        </div>
+                        <div class="block-title"><?php echo $item->title; ?></div>
+                    </div>
+                </a>
             </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture2.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="medium-height shown">
-        <a class="inner" href="#" style="background-color: #39bfa9">
-            <div class="block-content">
-                <div class="block-title" style="color: #39bfa9">Выставка</div>
-                <div class="block-dates">Центр современного искусства «Винзавод»<br>
-                    <nobr>ноябрь 2013</nobr>
-                    <span class="long-line"></span>
-                    <nobr>январь 2014</nobr>
-                </div>
-                <div class="block-name">Вне поля зрения</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture3.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="small-height shown">
-        <a class="inner" href="#" style="background-color: #39bfa9">
-            <div class="block-content">
-                <div class="block-title" style="color: #39bfa9">Выставка</div>
-                <div class="block-dates">Дом на набережной<br>
-                    <nobr>март 2015</nobr>
-                    <span class="long-line"></span>
-                    <nobr>апрель 2015</nobr>
-                </div>
-                <div class="block-name"><span>Льонель Фавре</span><br>Донецк. Не только дым</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture4.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="small-height shown">
-        <a class="inner" href="#" style="background-color: #39bfa9">
-            <div class="block-content">
-                <div class="block-title" style="color: #39bfa9">Выставка</div>
-                <div class="block-dates">Московский музей современного искусства<br>
-                    <nobr>май 2012</nobr>
-                    <span class="long-line"></span>
-                    <nobr>июнь 2012</nobr>
-                </div>
-                <div class="block-name"><span>Виталий Пушницкий</span><br>Механизмы времени</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture5.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="full-height shown">
-        <a class="inner" href="#" style="background-color: #806aed">
-            <div class="block-content">
-                <div class="block-title" style="color: #806aed">Открытие</div>
-                <div class="block-dates">Новый музей<br>
-                    <nobr>июнь 2010</nobr>
-                </div>
-                <div class="block-name">Открытие Нового музея в Санкт-Петербурге</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/vertical_preview_picture1.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="full-height shown">
-        <a class="inner" href="#" style="background-color: #39bfa9">
-            <div class="block-content">
-                <div class="block-title" style="color: #39bfa9">Выставка</div>
-                <div class="block-dates">Дом на набережной<br>
-                    <nobr>июль 2014</nobr>
-                    <span class="long-line"></span>
-                    <nobr>август 2014</nobr>
-                </div>
-                <div class="block-name">Художественное изобретение себя и чистое удовольствие от жизни и любви</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/vertical_preview_picture2.jpg)"></div>
-        </a>
-    </article>
-
-    <article class="small-height shown">
-        <a class="inner" href="#" style="background-color: #b3bf30">
-            <div class="block-content">
-                <div class="block-title" style="color: #b3bf30">Фестиваль</div>
-                <div class="block-dates">Московская государственная консерватория имени П.И.Чайковского,
-                    Театрально-культурный центр имени Вс. Мейерхольда, Центр творческих индустрий «Фабрика»<br>
-                    <nobr>апрель 2014</nobr>
-                    <span class="long-line"></span>
-                    <nobr>май 2014</nobr>
-                </div>
-                <div class="block-name">Ожидание</div>
-            </div>
-            <div class="block-image" style="background-image: url(/frontend/images/regular_preview_picture.png)"></div>
-        </a>
-    </article>
+        <?php endforeach; ?>
+    </div>
 
 </div>
 

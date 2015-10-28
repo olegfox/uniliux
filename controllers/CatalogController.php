@@ -36,7 +36,7 @@ class CatalogController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
+        if (Yii::$app->user->isGuest || Yii::$app->user->identity->role == 0) {
             return $this->redirect(['admin/login']);
         }
 

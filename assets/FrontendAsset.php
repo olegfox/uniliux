@@ -26,7 +26,7 @@ class FrontendAsset extends AssetBundle
     ];
     public $js = [
         'frontend/bower_components/modernizr/modernizr.js',
-        'frontend/bower_components/jquery/dist/jquery.min.js',
+//        'frontend/bower_components/jquery/dist/jquery.min.js',
         'frontend/bower_components/slick-carousel/slick/slick.min.js',
         'frontend/scripts/main.js',
         'frontend/scripts/SidebarTransitions/classie.js',

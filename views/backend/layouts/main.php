@@ -40,6 +40,7 @@ BackendAsset::register($this);
                     ['label' => 'Фабрики', 'url' => ['/factory']],
                     ['label' => 'Каталоги', 'url' => ['/catalog']],
                     ['label' => 'Новости', 'url' => ['/news']],
+                    ['label' => 'Пользователи', 'url' => ['/client']],
                     Yii::$app->user->isGuest ?
                         ['label' => 'Вход', 'url' => ['/admin/login']] :
                         ['label' => 'Выход (' . Yii::$app->user->identity->username . ')',

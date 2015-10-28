@@ -6,37 +6,13 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
+use app\models\ClientLoginForm;
 use app\models\ContactForm;
-use app\models\Works;
-use app\models\Service;
+use app\models\Client;
 
 class AdminController extends Controller
 {
     public $layout = '@app/views/backend/layouts/main';
-
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['logout'],
-                'rules' => [
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     public function actions()
     {
@@ -62,9 +38,18 @@ class AdminController extends Controller
 
     public function actionLogin()
     {
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->redirect(['admin/index']);
+        $model = new ClientLoginForm();
+        if ($model->load(Yii::$app->request->post())) {
+            $client = Client::find()->where(['email' => $model->email])->one();
+            if($client){
+                if($client->role == 1){
+                    if($model->login()){
+                        return $this->redirect(['admin/index']);
+                    }
+                }
+            }
+
+            return $this->redirect(['admin/login']);
         } else {
             return $this->render('/backend/admin/login', [
                 'model' => $model,
