@@ -28,6 +28,8 @@ class FrontendAsset extends AssetBundle
         'frontend/bower_components/modernizr/modernizr.js',
 //        'frontend/bower_components/jquery/dist/jquery.min.js',
         'frontend/bower_components/slick-carousel/slick/slick.min.js',
+        'frontend/scripts/jquery.event.frame.js',
+        'frontend/scripts/jquery.parallax.min.js',
         'frontend/scripts/main.js',
         'frontend/scripts/SidebarTransitions/classie.js',
         'frontend/scripts/SidebarTransitions/sidebarEffects.js',

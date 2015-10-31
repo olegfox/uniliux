@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Factory;
+use app\models\FactoryPhoto;
 use app\models\FactorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -72,6 +73,10 @@ class FactoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
             $model->upload();
+
+            $model->photos = UploadedFile::getInstances($model, 'photos');
+            $model->uploadPhotos();
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('/backend/factory/create', [
@@ -93,6 +98,21 @@ class FactoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
             $model->upload();
+
+            $model->photos = UploadedFile::getInstances($model, 'photos');
+            $model->uploadPhotos();
+
+//          Удаляем фотографии из фабрики, отмеченные на удаление
+            if (isset($_POST['photos'])) {
+                foreach ($_POST['photos'] as $photo) {
+                    $photoObject = FactoryPhoto::find()->where(['id' => $photo])->one();
+
+                    if (is_object($photoObject)) {
+                        $photoObject->delete();
+                    }
+                }
+            }
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('/backend/factory/update', [

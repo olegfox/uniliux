@@ -23,14 +23,15 @@ FrontendAsset::register($this);
     <?php $this->head() ?>
 </head>
 <body class="pace-done">
-<?php $this->beginBody() ?>
-<div class="pace  pace-inactive">
-    <div class="pace-progress" data-progress-text="100%" data-progress="99" style="width: 100%;">
-        <div class="pace-progress-inner"></div>
-    </div>
-    <div class="pace-activity"></div>
+<div id="port">
+    <img class="parallax-layer" src="/frontend/images/bg.jpg" alt="" >
 </div>
-
+<?php $this->beginBody() ?>
+<?php if (Yii::$app->controller->action->id == 'index') { ?>
+<div class="pace">
+    <img src="/frontend/images/logo.png" alt="" width="267px" height="60px"/>
+</div>
+<?php } ?>
 <div id="st-container" class="st-container">
     <nav class="st-menu st-menu-news st-effect-1" id="st-menu-news"></nav>
     <div class="st-pusher">
@@ -43,7 +44,7 @@ FrontendAsset::register($this);
                 <div class="inner">
                     <a class="logo" href="/"></a>
                     <div class="socials">
-                        <a href="#"><img src="/frontend/images/fb.jpg" alt="" width="80px" height="80px"/></a>
+                        <a href="#"><img src="/frontend/images/inst.jpg" alt="" width="76px" height="80px"/></a>
                     </div>
                     <div class="menu">
                         <?php foreach (Menu::getItems() as $item): ?>

@@ -6,6 +6,10 @@ function getParameterByName(name) {
 }
 
 $(function(){
+  $(window).load(function(){
+    $(".pace").fadeOut(1500);
+  });
+
   //  Инициализация слайдера на главной
   $('.slider').slick({
     dots: true,
@@ -25,4 +29,17 @@ $(function(){
   });
 
   $('.fixed-header').width($('.wrap-content').width());
+
+  $(window).resize(function(){
+    $('.fixed-header').width($('.wrap-content').width());
+  });
+
+  jQuery('.parallax-layer').parallax({
+    mouseport: jQuery("#port, .st-container"),
+    xorigin: 0.5,
+    yorigin: 0.5,
+    width: 50,
+    height: 50,
+    decay: 0.9
+  });
 });

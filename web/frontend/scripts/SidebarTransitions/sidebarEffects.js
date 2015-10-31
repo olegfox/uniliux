@@ -349,8 +349,8 @@ var SidebarMenuEffects = (function() {
   });
 
   initNews('.feature-news a', 'st-menu-news');
-  initNews('.news-list:not(.news-list-main) a', 'st-menu-news');
-  initNews('.factory-list:not(.factory-list-main) a', 'st-menu-news');
+  initNews('.news-list a', 'st-menu-news');
+  initNews('.factory-list a', 'st-menu-news');
   //initMedia();
 
 })();

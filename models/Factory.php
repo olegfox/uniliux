@@ -25,6 +25,11 @@ class Factory extends \yii\db\ActiveRecord
     public $imgFile;
 
     /**
+     * @var UploadedFile
+     */
+    public $photos;
+
+    /**
      * @inheritdoc
      */
     public static function tableName()
@@ -60,7 +65,8 @@ class Factory extends \yii\db\ActiveRecord
             [['text'], 'string'],
             [['position'], 'integer'],
             [['title', 'meta_title', 'meta_description', 'meta_keywords', 'img'], 'string', 'max' => 255],
-            [['imgFile'], 'file', 'skipOnEmpty' => true]
+            [['imgFile'], 'file', 'skipOnEmpty' => true],
+            [['photos'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 200]
         ];
     }
 
@@ -78,6 +84,7 @@ class Factory extends \yii\db\ActiveRecord
             'text' => 'Текст',
             'position' => 'Позиция',
             'img' => 'Изображение',
+            'photos' => 'Фотографии'
         ];
     }
 
@@ -90,13 +97,40 @@ class Factory extends \yii\db\ActiveRecord
         return new FactoryQuery(get_called_class());
     }
 
+    public function getPhotos(){
+        $photos = FactoryPhoto::find()
+            ->where(['factory_id' => $this->id])
+            ->all();
+
+        return $photos;
+    }
+
     public function upload()
     {
         if ($this->validate()) {
-            $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->imgFile->extension;
-            $this->img = $newFileName;
-            $this->imgFile->saveAs('uploads/factory/' . $newFileName);
-            $this->save();
+            if(is_object($this->imgFile)){
+                $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->imgFile->extension;
+                $this->img = $newFileName;
+                $this->imgFile->saveAs('uploads/factory/' . $newFileName);
+                $this->save();
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public function uploadPhotos()
+    {
+        if ($this->validate()) {
+            foreach ($this->photos as $photo) {
+                $factoryPhoto = new FactoryPhoto();
+                $newFileName = Yii::$app->security->generateRandomString() . '.' . $photo->extension;
+                $factoryPhoto->link = $newFileName;
+                $factoryPhoto->factory_id = $this->id;
+                $photo->saveAs('uploads/factory/' . $newFileName);
+                $factoryPhoto->save();
+            }
             return true;
         } else {
             return false;
@@ -106,9 +140,14 @@ class Factory extends \yii\db\ActiveRecord
     public function beforeDelete() {
         if (parent::beforeDelete()) {
             $rootPath = Yii::$app->getBasePath().'/web';
-            if(file_exists($rootPath . '/uploads/factory/' . $this->img)){
+            if(file_exists($rootPath . '/uploads/factory/' . $this->img) && is_file($rootPath . '/uploads/factory/' . $this->img)){
                 unlink($rootPath . '/uploads/factory/' . $this->img);
             }
+
+            foreach($this->getPhotos() as $photo){
+                $photo->delete();
+            }
+
             return true;
         } else {
             return false;

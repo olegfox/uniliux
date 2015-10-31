@@ -17,13 +17,13 @@ use himiklab\thumbnail\EasyThumbnailImage;
 </div>
 <div class="wrap-head">
     <div class="head">
-        <span class="date">24/15/2015</span>
+        <span class="date"><?php echo date('d/m/Y', strtotime($newsOne->date)); ?></span>
         <h2><?php echo $newsOne->title; ?></h2>
     </div>
 </div>
 <?php } else { ?>
 <div class="close close-black"></div>
-<span class="date">24/15/2015</span>
+<span class="date"><?php echo date('d/m/Y', strtotime($newsOne->date)); ?></span>
 <h2><?php echo $newsOne->title; ?></h2>
 <?php } ?>
 <?php echo $newsOne->text; ?>
