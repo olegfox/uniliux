@@ -29,10 +29,27 @@ FrontendAsset::register($this);
 <?php $this->beginBody() ?>
 <?php if (Yii::$app->controller->action->id == 'index') { ?>
 <div class="pace">
-    <img src="/frontend/images/logo.png" alt="" width="267px" height="60px"/>
+    <img src="/frontend/images/logo.png" alt="" width="218px" height="49px"/>
 </div>
 <?php } ?>
 <div id="st-container" class="st-container">
+    <nav class="st-menu st-effect-1" id="st-menu-nav">
+        <?php foreach (Menu::getItems() as $item): ?>
+        <?php if($item['title'] == 'Новости') { ?>
+            <a <?php if (Yii::$app->request->url == '/site/news') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } elseif($item['title'] == 'Фабрики') { ?>
+            <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } elseif($item['title'] == 'Каталоги') { ?>
+            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } elseif($item['title'] == 'Контакты') { ?>
+            <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } elseif($item['title'] == 'О компании') { ?>
+            <a <?php if (Yii::$app->request->url == '/site/about') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/about/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } else { ?>
+            <a <?php if (Yii::$app->request->url == '/') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
+        <?php } ?>
+        <?php endforeach; ?>
+    </nav>
     <nav class="st-menu st-menu-news st-effect-1" id="st-menu-news"></nav>
     <div class="st-pusher">
         <div class="wrap-container-box">
@@ -48,20 +65,26 @@ FrontendAsset::register($this);
                     </div>
                     <div class="menu">
                         <?php foreach (Menu::getItems() as $item): ?>
-                            <?php if($item['title'] == 'Новости') { ?>
-                                <a href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
-                            <?php } elseif($item['title'] == 'Фабрики') { ?>
-                                <a href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
-                            <?php } elseif($item['title'] == 'Каталоги') { ?>
-                                <a href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
-                            <?php } elseif($item['title'] == 'Контакты') { ?>
-                                <a href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
-                            <?php } else { ?>
-                                <a href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
-                            <?php } ?>
+                        <?php if($item['title'] == 'Новости') { ?>
+                            <a <?php if (Yii::$app->request->url == '/site/news') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/news/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } elseif($item['title'] == 'Фабрики') { ?>
+                            <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } elseif($item['title'] == 'Каталоги') { ?>
+                            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } elseif($item['title'] == 'Контакты') { ?>
+                            <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } elseif($item['title'] == 'О компании') { ?>
+                            <a <?php if (Yii::$app->request->url == '/site/about') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/about/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } else { ?>
+                            <a <?php if (Yii::$app->request->url == '/') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/']); ?>"><?php echo $item['title']; ?></a>
+                        <?php } ?>
                         <?php endforeach; ?>
-<!--                        <a href="#">EN</a>-->
                     </div>
+                    <button type="button" class="navbar-toggle">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
                 </div>
             </header>
             <!-- end Header -->

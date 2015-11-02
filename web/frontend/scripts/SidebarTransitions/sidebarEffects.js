@@ -336,21 +336,11 @@ var SidebarMenuEffects = (function() {
 
   }
 
-  initMenu();
-
-  if($(window).width() <= 1000) {
-    initToggleMenu();
-  }
-
-  $(window).resize(function(){
-    if($(window).width() <= 1000) {
-      initToggleMenu();
-    }
-  });
-
+  //initMenu();
+  initToggleMenu();
   initNews('.feature-news a', 'st-menu-news');
-  initNews('.news-list a', 'st-menu-news');
-  initNews('.factory-list a', 'st-menu-news');
+  initNews('.news-list:not(.news-list-main) a', 'st-menu-news');
+  initNews('.factory-list:not(.factory-list-main) a', 'st-menu-news');
   //initMedia();
 
 })();

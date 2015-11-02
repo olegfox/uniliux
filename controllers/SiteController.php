@@ -257,4 +257,21 @@ class SiteController extends Controller
         return $this->redirect('/site/catalogs/');
     }
 
+    /**
+     * Страница о компании
+     *
+     * @return string
+     * @throws \yii\web\NotFoundHttpException
+     */
+    public function actionAbout()
+    {
+        $page = Menu::findOne(['slug' => 'o-kompanii']);
+
+        $params = [
+            'page' => $page
+        ];
+
+        return $this->render('/frontend/page/index', $params);
+    }
+
 }

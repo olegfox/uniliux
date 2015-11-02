@@ -22,7 +22,7 @@ $this->title = 'Uniliux';
         <?php foreach ($factories as $factory): ?>
             <div>
                 <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $factory->slug]); ?>">
-                    <div class="block-img" style="background-image: url(/uploads/factory/<?php echo $factory->img; ?>); background-size: cover;"></div>
+                    <div class="block-img" style="background: #ffffff url(/uploads/factory/<?php echo $factory->img; ?>) center center no-repeat; background-size: 235px;"></div>
                 </a>
             </div>
         <?php endforeach; ?>
