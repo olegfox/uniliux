@@ -218,7 +218,8 @@ var SidebarMenuEffects = (function() {
         blink();
 
         $('.st-menu .close').click(function(){
-          resetMenu();
+          resetMenu(); 
+          document.removeEventListener( mobilecheck() ? 'touchstart' : 'click', bodyClickFn );
         });
 
         if (window.history.pushState) {
