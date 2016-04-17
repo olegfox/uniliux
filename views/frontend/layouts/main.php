@@ -29,7 +29,7 @@ FrontendAsset::register($this);
 <?php $this->beginBody() ?>
 <?php if (Yii::$app->controller->action->id == 'index') { ?>
 <div class="pace">
-    <img src="/frontend/images/logo.png" alt="" width="218px" height="49px"/>
+    <img src="/frontend/images/loader.gif" alt="" width="50px" height="50px"/>
 </div>
 <?php } ?>
 <div id="st-container" class="st-container">
@@ -40,7 +40,7 @@ FrontendAsset::register($this);
         <?php } elseif($item['title'] == 'Фабрики') { ?>
             <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'Каталоги') { ?>
-            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+            <a <?php if (Yii::$app->request->url == '/site/catalogs/' || Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'Контакты') { ?>
             <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'О компании') { ?>
@@ -70,7 +70,7 @@ FrontendAsset::register($this);
                         <?php } elseif($item['title'] == 'Фабрики') { ?>
                             <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'Каталоги') { ?>
-                            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+                            <a <?php if (Yii::$app->request->url == '/site/catalogs/' || Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'Контакты') { ?>
                             <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'О компании') { ?>

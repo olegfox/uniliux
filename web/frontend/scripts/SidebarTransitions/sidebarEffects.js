@@ -219,6 +219,7 @@ var SidebarMenuEffects = (function() {
 
         $('.st-menu .close').click(function(){
           resetMenu();
+          document.removeEventListener( mobilecheck() ? 'touchstart' : 'click', bodyClickFn );
         });
 
         if (window.history.pushState) {
