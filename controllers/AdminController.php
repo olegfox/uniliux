@@ -41,6 +41,7 @@ class AdminController extends Controller
         $model = new ClientLoginForm();
         if ($model->load(Yii::$app->request->post())) {
             $client = Client::find()->where(['email' => $model->email])->one();
+
             if($client){
                 if($client->role == 1){
                     if($model->login()){

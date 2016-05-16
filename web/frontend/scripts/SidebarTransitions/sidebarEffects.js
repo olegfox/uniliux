@@ -184,50 +184,51 @@ var SidebarMenuEffects = (function() {
         ev.preventDefault();
         //container.className = 'st-menu-menu'; // clear
         document.getElementById( 'st-container').className = 'st-container';
+
         $('.' + selector2).html(decodeURIComponent($(this).data( 'text' ).replace(/\+/g, ' ')));
 
         // Init Slider
-        $('.slider').slick({
-          dots: true,
-          infinite: true,
-          speed: 500,
-          fade: false,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          autoplay: false,
-          autoplaySpeed: 2000
-        });
+          $('.slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: false,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: false,
+            autoplaySpeed: 2000
+          });
 
-        function blink(){
-          if($('.slider .slick-prev').hasClass('bounceInLeft animated')){
-            $('.slider .slick-prev')
-              .removeClass('bounceInLeft animated');
-          }else{
-            $('.slider .slick-prev')
-              .addClass('bounceInLeft animated');
+          function blink(){
+            if($('.slider .slick-prev').hasClass('bounceInLeft animated')){
+              $('.slider .slick-prev')
+                .removeClass('bounceInLeft animated');
+            }else{
+              $('.slider .slick-prev')
+                .addClass('bounceInLeft animated');
+            }
+            if($('.slider .slick-next').hasClass('bounceInRight animated')){
+              $('.slider .slick-next')
+                .removeClass('bounceInLeft animated');
+            }else{
+              $('.slider .slick-next')
+                .addClass('bounceInRight animated');
+            }
           }
-          if($('.slider .slick-next').hasClass('bounceInRight animated')){
-            $('.slider .slick-next')
-              .removeClass('bounceInLeft animated');
-          }else{
-            $('.slider .slick-next')
-              .addClass('bounceInRight animated');
-          }
-        }
 
-        blink();
+          blink();
 
-        $('.st-menu .close').click(function(){
-          resetMenu(); 
-          document.removeEventListener( mobilecheck() ? 'touchstart' : 'click', bodyClickFn );
-        });
+          $('.st-menu .close').click(function(){
+            resetMenu(); 
+            document.removeEventListener( mobilecheck() ? 'touchstart' : 'click', bodyClickFn );
+          });
+
+          // Инициализация социальных кнопок
+          $('.social-likes').socialLikes();
 
         if (window.history.pushState) {
           window.history.pushState(null, null, $(this).attr( 'href' ));
         }
-
-        // Инициализация социальных кнопок
-        $('.social-likes').socialLikes();
 
         classie.add( container, effect );
         classie.add( document.getElementById( 'st-container' ), effect );

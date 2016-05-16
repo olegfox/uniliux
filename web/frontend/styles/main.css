@@ -393,8 +393,7 @@ h1 {
 /* line 278, ../sass/main.sass */
 .st-menu.st-menu-news p {
   color: #000;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 16px;
   line-height: 1.5em;
 }
 /* line 283, ../sass/main.sass */
@@ -2808,7 +2807,7 @@ form .form-group button {
 
   /* line 2264, ../sass/main.sass */
   .navbar-toggle {
-    right: 70px;
+    right: 20px;
   }
 
   /* line 2266, ../sass/main.sass */
@@ -3251,4 +3250,8 @@ form .form-group button {
     font-size: 0.27778em;
     line-height: 31px;
   }
+}
+
+.social a{
+    margin-right: 10px;
 }

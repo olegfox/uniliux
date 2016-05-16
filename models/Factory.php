@@ -122,7 +122,7 @@ class Factory extends \yii\db\ActiveRecord
 
     public function uploadPhotos()
     {
-        if ($this->validate()) {
+        // if ($this->validate()) {
             foreach ($this->photos as $photo) {
                 $factoryPhoto = new FactoryPhoto();
                 $newFileName = Yii::$app->security->generateRandomString() . '.' . $photo->extension;
@@ -132,9 +132,9 @@ class Factory extends \yii\db\ActiveRecord
                 $factoryPhoto->save();
             }
             return true;
-        } else {
-            return false;
-        }
+        // } else {
+        //     return false;
+        // }
     }
 
     public function beforeDelete() {

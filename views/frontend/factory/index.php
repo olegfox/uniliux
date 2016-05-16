@@ -36,8 +36,9 @@ if(isset($factoryOne)) {
     <div class="factory-list">
         <?php foreach ($factory as $item): ?>
             <div>
-                <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-text="<?php echo urlencode(file_get_contents('http://' . $_SERVER['HTTP_HOST'] . Url::to(['/site/factorycontent', 'slug' => $item->slug]))); ?>">
-                    <div class="block-img" style="background: #fff url(/uploads/factory/<?php echo $item->img; ?>) center center no-repeat; background-size: 235px;"></div>
+            <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-url="" data-text="<?php echo urlencode(file_get_contents('http://' . $_SERVER['HTTP_HOST'] . Url::to(['/site/factorycontent', 'slug' => $item->slug]))); ?>">
+                <!--<a class="inner" href="<?php //echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-url="<?php //echo Url::to(['/site/factorycontent', 'slug' => $item->slug]); ?>"> -->
+                    <div class="block-img" style="<?php if (file_exists( 'uploads/factory/' . $item->img) && !empty($item->img)) { ?>background: #fff url(/uploads/factory/<?php echo $item->img; ?>) center center no-repeat; background-size: 235px;<?php } else { ?> background-color: #fff; <?php } ?>"></div>
                 </a>
             </div>
         <?php endforeach; ?>

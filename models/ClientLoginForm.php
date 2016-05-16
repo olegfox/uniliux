@@ -36,7 +36,6 @@ class ClientLoginForm extends Model
     {
         if (!$this->hasErrors()):
             $user = $this->getUser();
-            print $user->validatePassword($this->password);
             if (!$user || !$user->validatePassword($this->password)):
                 $field = 'email';
                 $this->addError($attribute, 'Неправильный '.$field.' или пароль.');

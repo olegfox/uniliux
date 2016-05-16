@@ -29,7 +29,7 @@ FrontendAsset::register($this);
 <?php $this->beginBody() ?>
 <?php if (Yii::$app->controller->action->id == 'index') { ?>
 <div class="pace">
-    <img src="/frontend/images/logo.png" alt="" width="218px" height="49px"/>
+    <img src="/frontend/images/loader.gif" alt="" width="50px" height="50px"/>
 </div>
 <?php } ?>
 <div id="st-container" class="st-container">
@@ -40,7 +40,7 @@ FrontendAsset::register($this);
         <?php } elseif($item['title'] == 'Фабрики') { ?>
             <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'Каталоги') { ?>
-            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+            <a <?php if (Yii::$app->request->url == '/site/catalogs/' || Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'Контакты') { ?>
             <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
         <?php } elseif($item['title'] == 'О компании') { ?>
@@ -60,9 +60,9 @@ FrontendAsset::register($this);
                 </div>
                 <div class="inner">
                     <a class="logo" href="/"></a>
-                    <div class="socials">
-                        <a href="#"><img src="/frontend/images/inst.jpg" alt="" width="76px" height="80px"/></a>
-                    </div>
+<!--                    <div class="socials">-->
+<!--                        <a href="#"><img src="/frontend/images/inst.jpg" alt="" width="76px" height="80px"/></a>-->
+<!--                    </div>-->
                     <div class="menu">
                         <?php foreach (Menu::getItems() as $item): ?>
                         <?php if($item['title'] == 'Новости') { ?>
@@ -70,7 +70,7 @@ FrontendAsset::register($this);
                         <?php } elseif($item['title'] == 'Фабрики') { ?>
                             <a <?php if (Yii::$app->request->url == '/site/factory') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/factory/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'Каталоги') { ?>
-                            <a <?php if (Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
+                            <a <?php if (Yii::$app->request->url == '/site/catalogs/' || Yii::$app->request->url == '/site/catalogs' || Yii::$app->request->url == '/site/reg' || Yii::$app->request->url == '/site/login') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/catalogs/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'Контакты') { ?>
                             <a <?php if (Yii::$app->request->url == '/site/contacts') : ?>class="current"<?php endif; ?> href="<?php echo Url::to(['/site/contacts/']); ?>"><?php echo $item['title']; ?></a>
                         <?php } elseif($item['title'] == 'О компании') { ?>
@@ -122,6 +122,9 @@ FrontendAsset::register($this);
     </div>
 </div>
 <?php $this->endBody() ?>
+<script type="text/javascript">
+ window.cookieconsent_options = {"message":"Website under construction","dismiss":"OK","learnMore":"click here","link":"","theme":"dark-bottom"}; 
+</script>
 </body>
 </html>
 <?php $this->endPage() ?>
