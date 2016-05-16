@@ -10,7 +10,7 @@ use himiklab\thumbnail\EasyThumbnailImage;
 <div class="slider">
 <!--    --><?php //foreach ($newsOne->getPhotos() as $photo): ?>
     <div class="wrap-slider">
-        <div class="slider" style="background: url(/uploads/news/<?php echo $newsOne->img ?>) center center no-repeat; background-size: cover;">
+        <div class="slider" style="background: url(http://<?php echo  $_SERVER['HTTP_HOST'] . EasyThumbnailImage::thumbnailFileUrl('uploads/news/' . $newsOne->img, 1920, 1080, EasyThumbnailImage::THUMBNAIL_OUTBOUND); ?>) center center no-repeat; background-size: cover;">
         </div>
     </div>
 <!--    --><?php //endforeach; ?>
@@ -31,6 +31,5 @@ use himiklab\thumbnail\EasyThumbnailImage;
     <div class="social-likes" data-title="<?php if (strlen($newsOne->meta_title) > 0) { echo $newsOne->meta_title; } else { echo $newsOne->title; } ?>" data-url="http://<?php echo  $_SERVER['HTTP_HOST'] . Url::to(['/site/news', 'slug' => $newsOne->slug]); ?>" data-media="<?php if(strlen($newsOne->img) > 0) {?>http://<?php echo  $_SERVER['HTTP_HOST'] . EasyThumbnailImage::thumbnailFileUrl('uploads/news/' . $newsOne->img, 300, 300, EasyThumbnailImage::THUMBNAIL_OUTBOUND); } ?>">
         <div class="facebook" title="Поделиться ссылкой на Фейсбуке">Facebook</div>
         <div class="vkontakte" title="Поделиться ссылкой во Вконтакте">Вконтакте</div>
-        <div class="twitter" title="Поделиться ссылкой в Твиттере">Twitter</div>
     </div>
 </div>

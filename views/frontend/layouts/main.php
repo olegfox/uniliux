@@ -60,9 +60,9 @@ FrontendAsset::register($this);
                 </div>
                 <div class="inner">
                     <a class="logo" href="/"></a>
-                    <div class="socials">
-                        <a href="#"><img src="/frontend/images/inst.jpg" alt="" width="76px" height="80px"/></a>
-                    </div>
+<!--                    <div class="socials">-->
+<!--                        <a href="#"><img src="/frontend/images/inst.jpg" alt="" width="76px" height="80px"/></a>-->
+<!--                    </div>-->
                     <div class="menu">
                         <?php foreach (Menu::getItems() as $item): ?>
                         <?php if($item['title'] == 'Новости') { ?>

@@ -100,11 +100,20 @@ line-height:19px
 }
 
 .social-likes__widget{
-  margin:6px;
-  color:#000;
-  background:#fff;
-  border:2px solid #000;
-  line-height:19px
+  height: 42px;
+  width: 42px;
+}
+
+.social-likes__widget * {
+    display: none;
+}
+
+.social-likes__widget_facebook {
+    background: url('/frontend/images/fb.gif') 0 0 no-repeat;
+}
+
+.social-likes__widget_vkontakte {
+    background: url('/frontend/images/vk.gif') 0 0 no-repeat;
 }
 
 .social-likes__widget:hover,.social-likes__widget:active,.social-likes__widget:focus{
@@ -211,11 +220,6 @@ background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAANCAYA
 .social-likes__icon_facebook{
 background: url(../images/fb.png) no-repeat 50% 9px;
 }
-
-.social-likes__widget_facebook:hover,.social-likes__widget_facebook:active,.social-likes__widget_facebook:focus{
-background:#000;border-color:#000
-}
-
 .social-likes__widget_facebook:hover .social-likes__icon_facebook,.social-likes__widget_facebook:active .social-likes__icon_facebook,.social-likes__widget_facebook:focus .social-likes__icon_facebook{
 background: url(../images/fb.png) no-repeat 50% -49px;
 
@@ -223,10 +227,6 @@ background: url(../images/fb.png) no-repeat 50% -49px;
 
 .social-likes__icon_twitter{
 background: url(../images/tw.png) no-repeat 50% 9px;)
-}
-
-.social-likes__widget_twitter:hover,.social-likes__widget_twitter:active,.social-likes__widget_twitter:focus{
-background:#000;border-color:#000
 }
 
 .social-likes__widget_twitter:hover .social-likes__icon_twitter,.social-likes__widget_twitter:active .social-likes__icon_twitter,.social-likes__widget_twitter:focus .social-likes__icon_twitter{
@@ -259,10 +259,6 @@ background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYA
 
 .social-likes__icon_vkontakte{
 background: url(../images/vk.png) no-repeat 50% 9px;
-}
-
-.social-likes__widget_vkontakte:hover,.social-likes__widget_vkontakte:active,.social-likes__widget_vkontakte:focus{
-background:#000;border-color:#000
 }
 
 .social-likes__widget_vkontakte:hover .social-likes__icon_vkontakte,.social-likes__widget_vkontakte:active .social-likes__icon_vkontakte,.social-likes__widget_vkontakte:focus .social-likes__icon_vkontakte{

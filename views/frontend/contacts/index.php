@@ -15,10 +15,14 @@ $this->title = $page->title;
 
     <div class="block-right">
         <div class="block-img">
-            <img src="/frontend/images/contacts-image.png" alt=""/>
+            <img src="/frontend/images/contacts-image.jpg" alt=""/>
         </div>
         <div class="text">
             <?php echo $page->text; ?>
+            <div class="social">
+                <a href="https://www.facebook.com/uniliux/?ref=bookmarks" target="_blank"><img src="/frontend/images/fb.gif" alt=""/></a>
+                <a href="https://vk.com/uniliux" target="_blank"><img src="/frontend/images/vk.gif" alt=""/></a>
+            </div>
         </div>
     </div>
 </div>
