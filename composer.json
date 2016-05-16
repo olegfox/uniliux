@@ -24,7 +24,8 @@
         "2amigos/yii2-ckeditor-widget" : "~1.0",
         "iutbay/yii2-kcfinder" : "*",
         "kartik-v/yii2-widget-datetimepicker": "*",
-        "dragonjet/yii2-opengraph": "*"
+        "dragonjet/yii2-opengraph": "*",
+ 	"ext-intl": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
