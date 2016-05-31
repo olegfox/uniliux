@@ -38,7 +38,7 @@ if(isset($factoryOne)) {
             <div>
             <a class="inner" href="<?php echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-url="" data-text="<?php echo urlencode(file_get_contents('http://' . $_SERVER['HTTP_HOST'] . Url::to(['/site/factorycontent', 'slug' => $item->slug]))); ?>">
                 <!--<a class="inner" href="<?php //echo Url::to(['/site/factory', 'slug' => $item->slug]); ?>" data-effect="st-effect-1" data-url="<?php //echo Url::to(['/site/factorycontent', 'slug' => $item->slug]); ?>"> -->
-                    <div class="block-img" style="<?php if (file_exists( 'uploads/factory/' . $item->img) && !empty($item->img)) { ?>background: #fff url(/uploads/factory/<?php echo $item->img; ?>) center center no-repeat; background-size: 235px;<?php } else { ?> background-color: #fff; <?php } ?>"></div>
+                    <div class="block-img" style="position: relative; background-color: #fff;"><div style="<?php if (file_exists( 'uploads/factory/' . $item->img) && !empty($item->img)) { ?>background: #fff url(/uploads/factory/<?php echo $item->img; ?>) center center no-repeat; background-size: contain; position: absolute; width: 230px; height: 130px; top: 0; bottom: 0; left: 0; right: 0; margin: auto;<?php } else { ?> background-color: #fff; <?php } ?>"></div></div>
                 </a>
             </div>
         <?php endforeach; ?>

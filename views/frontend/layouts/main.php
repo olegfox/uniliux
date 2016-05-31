@@ -114,7 +114,7 @@ FrontendAsset::register($this);
                 <div class="content">
                     <p>Адрес представительства в Москве: Ломоносовский проспект, 29 корпус 2, 119 192 - Москва - Россия</p>
                     <p>Телефон: +7 (495) 225-70-30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Электронная почта:
-                        <a href="mailto:russia@uniliux.ru">russia@uniliux.ru</a></p>
+                        <a href="mailto:info@uniliux.ru">info@uniliux.ru</a></p>
                 </div>
             </footer>
             <!-- end Footer -->

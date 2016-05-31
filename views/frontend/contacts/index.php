@@ -20,8 +20,9 @@ $this->title = $page->title;
         <div class="text">
             <?php echo $page->text; ?>
             <div class="social">
-                <a href="https://www.facebook.com/uniliux/?ref=bookmarks" target="_blank"><img src="/frontend/images/fb.gif" alt=""/></a>
-                <a href="https://vk.com/uniliux" target="_blank"><img src="/frontend/images/vk.gif" alt=""/></a>
+                <a href="https://www.facebook.com/uniliux/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                <a href="https://vk.com/uniliux" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/uniliux_byfrezza/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

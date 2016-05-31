@@ -28,7 +28,7 @@ display:inline-block;position:relative;white-space:nowrap
 }
 
 .social-likes__widget:before,.social-likes__widget:after{
-display:none!important
+/*display:none!important*/
 }
 
 .social-likes_vertical .social-likes__widget{
@@ -100,8 +100,9 @@ line-height:19px
 }
 
 .social-likes__widget{
-  height: 42px;
-  width: 42px;
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
 }
 
 .social-likes__widget * {
@@ -109,15 +110,15 @@ line-height:19px
 }
 
 .social-likes__widget_facebook {
-    background: url('/frontend/images/fb.gif') 0 0 no-repeat;
+    /*background: url('/frontend/images/fb.gif') 0 0 no-repeat;*/
 }
 
 .social-likes__widget_vkontakte {
-    background: url('/frontend/images/vk.gif') 0 0 no-repeat;
+    /*background: url('/frontend/images/vk.gif') 0 0 no-repeat;*/
 }
 
 .social-likes__widget:hover,.social-likes__widget:active,.social-likes__widget:focus{
--webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#fff;cursor:pointer
+-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#000;cursor:pointer
 }
 
 .social-likes__button,.social-likes__counter{
@@ -202,7 +203,7 @@ display:table-cell;padding:2px 8px 2px 4px;border-left:0;text-align:right
 }
 
 .social-likes_single .social-likes__widget:hover>.social-likes__counter:before,.social-likes_single .social-likes__widget:focus>.social-likes__counter:before,.social-likes_single .social-likes__widget:active>.social-likes__counter:before{
-display:none
+/*display:none*/
 }
 
 .social-likes__icon_single{

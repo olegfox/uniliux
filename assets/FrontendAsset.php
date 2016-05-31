@@ -18,6 +18,7 @@ class FrontendAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'frontend/styles/font-awesome.min.css',
         'frontend/styles/slick.css',
         'frontend/scripts/SidebarTransitions/component.css',
         'frontend/styles/social-likes_birman.css',

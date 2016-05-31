@@ -26,7 +26,7 @@ class SiteController extends Controller
     {
         $sliders = Slider::find()->all();
         $news = News::find()->orderBy(['date' => SORT_DESC])->limit(3)->all();
-        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->limit(3)->all();
+        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->all();
 
         return $this->render('/frontend/site/index', [
             'sliders' => $sliders,
