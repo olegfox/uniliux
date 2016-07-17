@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
     <?= $form->field($model, 'imgFile')->fileInput() ?>
+    <?= $form->field($model, 'logoFile')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

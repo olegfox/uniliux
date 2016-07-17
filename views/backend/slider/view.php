@@ -39,7 +39,18 @@ $this->params['breadcrumbs'][] = $this->title;
                     50,
                     EasyThumbnailImage::THUMBNAIL_OUTBOUND
                 )
+            ),
+            array(
+                'label' => 'Logo',
+                'format' => 'raw',
+                'value'=>EasyThumbnailImage::thumbnailImg(
+                    'uploads/slider/' . $model->logo,
+                    50,
+                    50,
+                    EasyThumbnailImage::THUMBNAIL_OUTBOUND
+                )
             )
+            
         ],
     ]) ?>
 

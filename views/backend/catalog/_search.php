@@ -18,14 +18,14 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'title') ?>
+    
+    <?php echo $form->field($model, 'brand') ?>
 
     <?= $form->field($model, 'meta_title') ?>
 
     <?php  echo $form->field($model, 'meta_description') ?>
 
     <?php  echo $form->field($model, 'meta_keywords') ?>
-
-    <?php // echo $form->field($model, 'text') ?>
 
     <?php // echo $form->field($model, 'position') ?>
 

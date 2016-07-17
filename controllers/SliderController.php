@@ -71,6 +71,7 @@ class SliderController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
+            $model->logoFile = UploadedFile::getInstance($model, 'logoFile');
             $model->upload();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -92,6 +93,7 @@ class SliderController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
+            $model->logoFile = UploadedFile::getInstance($model, 'logoFile');
             $model->upload();
             return $this->redirect(['view', 'id' => $model->id]);
         } else {

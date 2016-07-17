@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'title',
+            
             [
                 'label' => 'Изображение',
                 'format' => 'raw',
@@ -39,6 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     );
                 }
             ],
+            
+            
             [
                 'label'=>'Файл',
                 'format' => 'raw',
@@ -51,6 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
              'meta_keywords',
             // 'text:ntext',
              'position',
+            
+            'brand',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
