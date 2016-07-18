@@ -16,6 +16,11 @@ use yii\web\UploadedFile;
  * @property string $text
  * @property integer $position
  * @property string $img
+ * @property string $link
+ * @property string $link_fb
+ * @property string $link_vk  
+ * @property string $link_inst  
+ * @property string $link_youtube   
  */
 class Factory extends \yii\db\ActiveRecord
 {
@@ -64,7 +69,8 @@ class Factory extends \yii\db\ActiveRecord
             [['title'], 'required'],
             [['text'], 'string'],
             [['position'], 'integer'],
-            [['title', 'meta_title', 'meta_description', 'meta_keywords', 'img'], 'string', 'max' => 255],
+            [['title', 'meta_title', 'meta_description', 'meta_keywords', 'img', 'link', 'link_fb', 'link_vk', 'link_inst', 'link_youtube'], 'string', 'max' => 255],
+            [['link', 'link_fb', 'link_vk', 'link_inst', 'link_youtube'], 'url', 'defaultScheme' => 'http'],
             [['imgFile'], 'file', 'skipOnEmpty' => true],
             [['photos'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg, gif', 'maxFiles' => 200]
         ];
@@ -84,7 +90,12 @@ class Factory extends \yii\db\ActiveRecord
             'text' => 'Текст',
             'position' => 'Позиция',
             'img' => 'Изображение',
-            'photos' => 'Фотографии'
+            'photos' => 'Фотографии',
+            'link' => 'Ссылка на сайт', 
+            'link_vk' => 'Ссылка на vk',
+            'link_fb' => 'Ссылка на facebook',
+            'link_inst' => 'Ссылка на instagram',
+            'link_youtube' => 'Ссылка на youtube'
         ];
     }
 
@@ -122,19 +133,16 @@ class Factory extends \yii\db\ActiveRecord
 
     public function uploadPhotos()
     {
-        // if ($this->validate()) {
-            foreach ($this->photos as $photo) {
-                $factoryPhoto = new FactoryPhoto();
-                $newFileName = Yii::$app->security->generateRandomString() . '.' . $photo->extension;
-                $factoryPhoto->link = $newFileName;
-                $factoryPhoto->factory_id = $this->id;
-                $photo->saveAs('uploads/factory/' . $newFileName);
-                $factoryPhoto->save();
-            }
-            return true;
-        // } else {
-        //     return false;
-        // }
+        foreach ($this->photos as $photo) {
+            $factoryPhoto = new FactoryPhoto();
+            $newFileName = Yii::$app->security->generateRandomString() . '.' . $photo->extension;
+            $factoryPhoto->link = $newFileName;
+            $factoryPhoto->factory_id = $this->id;
+            $photo->saveAs('uploads/factory/' . $newFileName);
+            $factoryPhoto->save();
+        }
+
+        return true;
     }
 
     public function beforeDelete() {

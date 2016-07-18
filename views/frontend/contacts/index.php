@@ -3,6 +3,7 @@
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+use yii\web\View;
 
 /* @var $this yii\web\View */
 $this->title = $page->title;
@@ -65,7 +66,7 @@ $this->title = $page->title;
 
     <div class="block-right">
         <div class="block-img">
-            <img src="/frontend/images/contacts-image.jpg" alt=""/>
+            <img src="/frontend/video/UNILIUX BY FREZZA ARREDAMENTI.jpg" alt=""/>
         </div>
         <div class="text">
             <?php echo $page->text; ?>
@@ -80,3 +81,6 @@ $this->title = $page->title;
         </div>
     </div>
 </div>
+
+<?php $this->registerJsFile('/frontend/scripts/jquery.vide.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]); ?>
+<?php $this->registerJsFile('/frontend/scripts/init.vide.js', ['depends' => [\yii\web\JqueryAsset::className()]]); ?>

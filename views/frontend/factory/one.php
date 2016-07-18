@@ -24,8 +24,21 @@ use himiklab\thumbnail\EasyThumbnailImage;
 </div>
 <?php echo $factoryOne->text; ?>
 <div id="social-block" class="clearfix">
-    <div class="social-likes" data-title="<?php if (strlen($factoryOne->meta_title) > 0) { echo $factoryOne->meta_title; } else { echo $factoryOne->title; } ?>" data-url="http://<?php echo  $_SERVER['HTTP_HOST'] . Url::to(['/site/factory', 'slug' => $factoryOne->slug]); ?>" data-media="<?php if(strlen($factoryOne->img) > 0) {?>http://<?php echo  $_SERVER['HTTP_HOST'] . EasyThumbnailImage::thumbnailFileUrl('uploads/factory/' . $factoryOne->img, 300, 300, EasyThumbnailImage::THUMBNAIL_OUTBOUND); } ?>">
-        <i class="facebook fa fa-facebook-square" title="Поделиться ссылкой на Фейсбуке"></i>
-        <i class="vkontakte fa fa-vk" title="Поделиться ссылкой во Вконтакте"></i>
+    <div class="social">
+        <?php if(!empty($factoryOne->link)): ?>
+            <a href="<?= $factoryOne->link ?>" class="link" target="_blank"><?= rtrim(str_replace('http://', '', $factoryOne->link), '/') ?></a>
+        <?php endif; ?>
+        <?php if(!empty($factoryOne->link_fb)): ?>
+            <a href="<?= $factoryOne->link_fb ?>" target="_blank"><i class="facebook fa fa-facebook"></i></a>
+        <?php endif; ?>
+        <?php if(!empty($factoryOne->link_vk)): ?>
+            <a href="<?= $factoryOne->link_vk ?>" target="_blank"><i class="vkontakte fa fa-vk"></i></a>
+        <?php endif; ?>
+        <?php if(!empty($factoryOne->link_inst)): ?>
+            <a href="<?= $factoryOne->link_inst ?>" target="_blank"><i class="instagram fa fa-instagram"></i></a>
+        <?php endif; ?>
+        <?php if(!empty($factoryOne->link_youtube)): ?>
+            <a href="<?= $factoryOne->link_youtube ?>" target="_blank"><i class="youtube fa fa-youtube"></i></a>
+        <?php endif; ?>
     </div>
 </div>

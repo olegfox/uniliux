@@ -373,11 +373,15 @@ h1 {
 /* line 238, ../sass/main.sass */
 .st-menu.st-menu-news .logotip {
   margin-bottom: 30px;
+  width: 100%!important;
+  text-align: center;
 }
 /* line 240, ../sass/main.sass */
 .st-menu.st-menu-news .logotip img {
-  width: 100%;
-  max-width: 370px;
+  width: auto!important;
+  height: auto!important;
+  max-height: 180px;
+  max-width: 230px;
 }
 /* line 243, ../sass/main.sass */
 .st-menu.st-menu-news .wrap-head {
@@ -437,6 +441,7 @@ h1 {
   color: #000;
   font-size: 16px;
   line-height: 1.5em;
+  text-align: justify;
 }
 /* line 283, ../sass/main.sass */
 .st-menu.st-menu-media {
@@ -1475,8 +1480,21 @@ content:''; float:none; clear:both; padding:0; margin:0; line-height:0; overflow
 .feature .slick-slider {
   height: 100%;
 }
-.feature .slick-slider .logoSlid{max-height:120px !important; overflow:hidden; margin: 30px;}
-.feature .slick-slider .logoSlid img{width: auto!important; height: auto!important; max-height: 100%; max-width: 180px; }
+.feature .slick-slider .logoSlid {
+  max-height: 180px !important;
+  overflow: hidden;
+  margin: 30px 0;
+  padding-right: 30px;
+  text-align: right;
+  width: 100%!important;
+} 
+.feature .slick-slider .logoSlid img{
+  display: inline-block;
+  width: auto!important;
+  height: auto!important; 
+  max-height: 100%; 
+  max-width: 230px; 
+}
 /* line 1086, ../sass/main.sass */
 .feature.feature-news {
   height: auto;
@@ -2609,7 +2627,7 @@ header.black .logo {
 
 .contacts .block-left {
   display: inline-block;
-  width: 60%;
+  width: 40%;
   vertical-align: top;
     float: left;
 }
@@ -2622,7 +2640,7 @@ header.black .logo {
 /* line 2062, ../sass/main.sass */
 .contacts .block-right {
   display: inline-block;
-  width: 40%;
+  width: 60%;
   vertical-align: top;
     float: right;
 }
@@ -3344,6 +3362,14 @@ form .form-group button {
 /* line 2598, ../sass/main.sass */
 #social-block {
   margin-top: 20px;
+}
+
+#social-block a.link {
+  font-size: 14px!important;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  vertical-align: top;
 }
 
 @media screen and (max-width: 600px) {
