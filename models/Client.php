@@ -206,7 +206,15 @@ class Client extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
 
     public function sendMessageWithPassword()
     {
-        Yii::$app->mailer->compose('/frontend/client/email_password', ['client' => $this])
+        Yii::$app->mailer
+            ->compose('/frontend/client/email_password', [
+                'client' => $this,
+                'image1' => Yii::getAlias('@app/web/frontend/images/image01.jpg'),
+                'image2' => Yii::getAlias('@app/web/frontend/images/image02.png'),
+                'image3' => Yii::getAlias('@app/web/frontend/images/image03.png'),
+                'file1' => Yii::getAlias('@app/web/frontend/files/ShowroomBertolotto.pdf'),
+                'file2' => Yii::getAlias('@app/web/frontend/files/список_фабрик_UNILIUX.pdf')
+            ])
             ->setTo($this->email)
             ->setFrom([Yii::$app->params['adminEmail'] => 'Uniliux'])
             ->setSubject('Пароль с сайта uniliux.com')

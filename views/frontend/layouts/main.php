@@ -137,7 +137,7 @@ FrontendAsset::register($this);
 </div>
 <?php $this->endBody() ?>
 <script type="text/javascript">
- window.cookieconsent_options = {"message":"Website under construction","dismiss":"OK","learnMore":"click here","link":"","theme":"dark-bottom"}; 
+ //window.cookieconsent_options = {"message":"Website under construction","dismiss":"OK","learnMore":"click here","link":"","theme":"dark-bottom"}; 
 </script>
 </body>
 </html>
