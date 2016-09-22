@@ -72,7 +72,7 @@ $this->title = $page->title;
             <?php echo $page->text; ?>
             <div class="social">
                 <a rel="nofollow" href="https://www.facebook.com/uniliux/?ref=bookmarks" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a rel="nofollow" href="https://vk.com/uniliux" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                <!--<a rel="nofollow" href="https://vk.com/uniliux" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>-->
                 <a rel="nofollow" href="https://www.instagram.com/uniliux_byfrezza/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                 <a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UCjs30SoitT-6h986qLNMpUg">
                     <span><i class="fa fa-youtube" aria-hidden="true"></i></span>

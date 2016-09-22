@@ -123,7 +123,7 @@ FrontendAsset::register($this);
                         <a href="mailto:info@uniliux.ru">info@uniliux.ru</a></span></p>
                     <p>
                         <a rel="nofollow" target="_blank" href="https://www.facebook.com/uniliux/?ref=bookmarks"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
-                        <a rel="nofollow" target="_blank" href="https://vk.com/uniliux"><span><i class="fa fa-vk" aria-hidden="true"></i></span></a>
+                        <!--<a rel="nofollow" target="_blank" href="https://vk.com/uniliux"><span><i class="fa fa-vk" aria-hidden="true"></i></span></a>-->
                         <a rel="nofollow" target="_blank" href="https://www.instagram.com/uniliux_byfrezza/"><span><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
                         <a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UCjs30SoitT-6h986qLNMpUg">
                             <span><i class="fa fa-youtube" aria-hidden="true"></i></span>
