@@ -18,6 +18,7 @@ class FrontendAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'frontend/styles/font-awesome.min.css',
         'frontend/styles/slick.css',
         'frontend/scripts/SidebarTransitions/component.css',
         'frontend/styles/social-likes_birman.css',
@@ -36,7 +37,7 @@ class FrontendAsset extends AssetBundle
         'frontend/scripts/SidebarTransitions/sidebarEffects.js',
         'frontend/scripts/wow.min.js',
         'frontend/scripts/social-likes.min.js',
-        '//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js'
+        //'//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js'
     ];
     public $depends = [
         'yii\web\YiiAsset'

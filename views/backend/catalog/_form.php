@@ -18,6 +18,8 @@ use app\widgets\CKEditor;
     <?= $form->field($model, 'fileObject')->fileInput() ?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+    
+    <?= $form->field($model, 'brand')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'meta_title')->textInput(['maxlength' => true]) ?>
 
@@ -35,6 +37,8 @@ use app\widgets\CKEditor;
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+    
+    <input type="hidden" value="<?=Yii::$app->request->getCsrfToken()?>" />
 
     <?php ActiveForm::end(); ?>
 

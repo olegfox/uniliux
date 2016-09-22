@@ -4,12 +4,14 @@ namespace app\models;
 
 use Yii;
 use yii\web\UploadedFile;
+use yii\web\validators\FileValidator;
 
 /**
  * This is the model class for table "catalog".
  *
  * @property integer $id
  * @property string $title
+ * @property string $brand
  * @property string $meta_title
  * @property string $meta_description
  * @property string $meta_keywords
@@ -63,10 +65,11 @@ class Catalog extends \yii\db\ActiveRecord
     {
         return [
             [['title'], 'required'],
+            [['brand'], 'string'],
             [['text'], 'string'],
             [['position'], 'integer'],
-            [['title', 'meta_title', 'meta_description', 'meta_keywords', 'img'], 'string', 'max' => 255],
-            [['imgFile', 'fileObject'], 'file', 'skipOnEmpty' => true]
+            [['title', 'meta_title', 'meta_description', 'meta_keywords', 'img', 'brand'], 'string', 'max' => 255],
+            [['imgFile', 'fileObject'], 'file', 'skipOnEmpty' => true] // 'extensions' => 'jpg, png, pdf'
         ];
     }
 
@@ -77,6 +80,7 @@ class Catalog extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'brand' => 'Brand',
             'title' => 'Заголовок',
             'meta_title' => 'Мета-заголовок',
             'meta_description' => 'Мета-описание',
@@ -104,10 +108,14 @@ class Catalog extends \yii\db\ActiveRecord
 
     public function uploadFile()
     {
+        
         if ($this->validate()) {
             if(is_object($this->fileObject)){
+                
                 $fileName = $this->fileObject->getBaseName() . '.' . $this->fileObject->getExtension();
+                //$fileName = Yii::$app->security->generateRandomString() . '.' . $this->fileObject->getExtension();
                 $this->file = $fileName;
+                
                 $this->fileObject->saveAs('uploads/catalog/' . $fileName);
                 $this->save();
                 return true;
@@ -123,6 +131,7 @@ class Catalog extends \yii\db\ActiveRecord
             if(is_object($this->imgFile)){
                 $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->imgFile->extension;
                 $this->img = $newFileName;
+                
                 $this->imgFile->saveAs('uploads/catalog/' . $newFileName);
                 $this->save();
                 return true;

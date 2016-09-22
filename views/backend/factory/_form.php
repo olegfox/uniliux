@@ -42,6 +42,16 @@ use app\widgets\CKEditor;
 
     <?= $form->field($model, 'meta_keywords')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'link')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'link_vk')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'link_fb')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'link_inst')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'link_youtube')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'text')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
         'preset' => 'full'

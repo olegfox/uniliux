@@ -39,8 +39,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     );
                 }
             ),
-
+            
+            array(
+                'label' => 'Logo',
+                'format' => 'raw',
+                'value'=> function($model){
+                    return EasyThumbnailImage::thumbnailImg(
+                        'uploads/slider/' . $model->logo,
+                        50,
+                        50,
+                        EasyThumbnailImage::THUMBNAIL_OUTBOUND
+                    );
+                }
+            ),
+            
             ['class' => 'yii\grid\ActionColumn'],
+
         ],
     ]); ?>
 

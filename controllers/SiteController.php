@@ -9,6 +9,7 @@ use app\models\Factory;
 use app\models\Slider;
 use app\models\Menu;
 use app\models\Catalog;
+use app\models\ContactForm;
 use app\models\ClientLoginForm;
 use app\models\ClientRegForm;
 use app\models\Client;
@@ -26,7 +27,7 @@ class SiteController extends Controller
     {
         $sliders = Slider::find()->all();
         $news = News::find()->orderBy(['date' => SORT_DESC])->limit(3)->all();
-        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->limit(3)->all();
+        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->all();
 
         return $this->render('/frontend/site/index', [
             'sliders' => $sliders,
@@ -150,10 +151,49 @@ class SiteController extends Controller
      */
     public function actionContacts()
     {
+        $model = new ContactForm();
         $page = Menu::findOne(['slug' => 'kontakty']);
+        $message = '';
+        
+        if(count(Yii::$app->request->post())>0){
+
+            $model->load(Yii::$app->request->post());
+            $model->attributes=$_POST['ContactForm'];
+
+            if ($model->validate()) {
+
+                $model->phone = $_POST['ContactForm']['phone'];
+                
+                $body = '<b>Имя</b>: '.$model->name;
+                $body .= '<br/><b>Email</b>: '.$model->email;
+                if(!empty($model->phone)){
+                    $body .= '<br/><b>Телефон</b>: '.$model->phone;
+                }
+                $body .= '<br/><b>Сообщение</b>: <br/>';
+                $body .= $model->message;
+                
+                $model->body = $body;
+                
+
+                if($model->contact(Yii::$app->params['emailto'])) {
+                    $message = 'Спасибо! Ваше сообщение отправлено.';
+                    $model = new ContactForm();
+                }else{
+                    $message = 'Ошибка! Ваше сообщение не отправлено.';
+                }
+
+            }else{
+                $message = $model->errors;
+                //print_r($message);
+                //exit;
+            }
+        }
 
         return $this->render('/frontend/contacts/index', [
-            'page' => $page
+            'page' => $page,
+            'model'=>$model,
+            'message' => $message,
+            'post' => Yii::$app->request->post()
         ]);
     }
 
@@ -172,8 +212,12 @@ class SiteController extends Controller
 
         if (!Yii::$app->user->isGuest){
             $catalogs = Catalog::find()->all();
+            $catalogsBrand = [];
+            foreach ($catalogs as $key => $value) {
+                $catalogsBrand[$value['brand']][] = $value;
+            }
             $params = array_merge($params, [
-                'catalogs' => $catalogs
+                'catalogs' => $catalogsBrand
             ]);
         }
 

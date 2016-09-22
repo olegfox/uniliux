@@ -31,6 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'title',
+            'brand',
             array(
                 'label' => 'Изображение',
                 'format' => 'raw',

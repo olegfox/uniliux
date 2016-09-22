@@ -18,14 +18,20 @@ FrontendAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'/>
+    <META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'/>
+    
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
 <body class="pace-done">
+
 <div id="port">
-    <img class="parallax-layer" src="/frontend/images/bg.jpg" alt="" >
+    <img class="parallax-layer" src="/frontend/images/bg.jpg" alt=""/>
 </div>
+
 <?php $this->beginBody() ?>
 <?php if (Yii::$app->controller->action->id == 'index') { ?>
 <div class="pace">
@@ -104,7 +110,7 @@ FrontendAsset::register($this);
 
             <!-- Main -->
             <div class="wrap-content"></div>
-            <div class="main">
+            <div class="main <?php ?>">
                 <?= $content ?>
             </div>
             <!-- end Main -->
@@ -113,8 +119,16 @@ FrontendAsset::register($this);
             <footer>
                 <div class="content">
                     <p>Адрес представительства в Москве: Ломоносовский проспект, 29 корпус 2, 119 192 - Москва - Россия</p>
-                    <p>Телефон: +7 (495) 225-70-30&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Электронная почта:
-                        <a href="mailto:russia@uniliux.ru">russia@uniliux.ru</a></p>
+                    <p><span>Телефон: +7 (495) 225-70-30</span> <span>Электронная почта:
+                        <a href="mailto:info@uniliux.ru">info@uniliux.ru</a></span></p>
+                    <p>
+                        <a rel="nofollow" target="_blank" href="https://www.facebook.com/uniliux/?ref=bookmarks"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+                        <a rel="nofollow" target="_blank" href="https://vk.com/uniliux"><span><i class="fa fa-vk" aria-hidden="true"></i></span></a>
+                        <a rel="nofollow" target="_blank" href="https://www.instagram.com/uniliux_byfrezza/"><span><i class="fa fa-instagram" aria-hidden="true"></i></span></a>
+                        <a rel="nofollow" target="_blank" href="https://www.youtube.com/channel/UCjs30SoitT-6h986qLNMpUg">
+                            <span><i class="fa fa-youtube" aria-hidden="true"></i></span>
+                        </a>
+                    </p>
                 </div>
             </footer>
             <!-- end Footer -->
@@ -123,7 +137,7 @@ FrontendAsset::register($this);
 </div>
 <?php $this->endBody() ?>
 <script type="text/javascript">
- window.cookieconsent_options = {"message":"Website under construction","dismiss":"OK","learnMore":"click here","link":"","theme":"dark-bottom"}; 
+ //window.cookieconsent_options = {"message":"Website under construction","dismiss":"OK","learnMore":"click here","link":"","theme":"dark-bottom"}; 
 </script>
 </body>
 </html>

@@ -17,6 +17,7 @@ use yii\filters\AccessControl;
 class CatalogController extends Controller
 {
     public $layout = '@app/views/backend/layouts/main';
+    //public $post;
 
     public function behaviors()
     {
@@ -93,9 +94,12 @@ class CatalogController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
+        
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             $model->imgFile = UploadedFile::getInstance($model, 'imgFile');
             $model->upload();
 
@@ -104,6 +108,7 @@ class CatalogController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            
             return $this->render('/backend/catalog/update', [
                 'model' => $model,
             ]);

@@ -6,6 +6,34 @@ function getParameterByName(name) {
 }
 
 $(function(){
+
+
+/*** Parallax ***/ 
+    
+/* detect touch */
+if("ontouchstart" in window){
+    document.documentElement.className = document.documentElement.className + " touch";
+}
+if(!$("html").hasClass("touch")){
+    /* background fix */
+    $(".parallax").css("background-attachment", "fixed");
+}
+
+/* fix vertical when not overflow
+call fullscreenFix() if .fullscreen content changes */
+function fullscreenFix(){
+    var h = $('body').height();
+    // set .fullscreen height
+    $(".content-b").each(function(i){
+        if($(this).innerHeight() > h){
+            $(this).closest(".fullscreen").addClass("overflow");
+        }
+    });
+}
+$(window).resize(fullscreenFix);
+fullscreenFix();
+
+    
   $(window).load(function(){
     $(".pace").fadeOut(1500);
   });
@@ -34,12 +62,14 @@ $(function(){
     $('.fixed-header').width($('.wrap-content').width());
   });
 
+    
   jQuery('.parallax-layer').parallax({
-    mouseport: jQuery("#port, .st-container"),
+    mouseport: jQuery("#port, .st-container"), 
     xorigin: 0.5,
     yorigin: 0.5,
     width: 50,
     height: 50,
     decay: 0.9
   });
+    
 });

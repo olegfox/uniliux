@@ -11,6 +11,9 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'olegfox',
         ],
+        'session' => [
+            'class' => 'yii\web\DbSession',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -21,9 +24,6 @@ $config = [
         'security' => [
             'passwordHashStrategy' => 'password_hash'
         ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
@@ -32,11 +32,12 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.gmail.com',
-                'username' => '1991oleg22',
-                'password' => 'qqkywjbfdrzlilhv',
-                'port' => '587',
-                'encryption' => 'tls',
+                'host' => 'smtp.uniliux.ru',
+                'username' => 'info@uniliux.ru',
+                'password' => 'nrc837FRY',
+                'port' => '25',
+                'encryption' => 'ssl',
+                'timeout' => 120
             ],
         ],
         'log' => [

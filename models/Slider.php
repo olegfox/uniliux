@@ -17,6 +17,7 @@ class Slider extends \yii\db\ActiveRecord
      * @var UploadedFile
      */
     public $imgFile;
+    public $logoFile;
 
     /**
      * @inheritdoc
@@ -33,7 +34,10 @@ class Slider extends \yii\db\ActiveRecord
     {
         return [
             [['img'], 'string', 'max' => 255],
-            [['imgFile'], 'file', 'skipOnEmpty' => true]
+            [['imgFile'], 'file', 'skipOnEmpty' => true],
+            
+            [['logo'], 'string', 'max' => 255],
+            [['logoFile'], 'file', 'skipOnEmpty' => true]
         ];
     }
 
@@ -45,6 +49,7 @@ class Slider extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'img' => 'Img',
+            'logo' => 'Logo'
         ];
     }
 
@@ -60,9 +65,26 @@ class Slider extends \yii\db\ActiveRecord
     public function upload()
     {
         if ($this->validate()) {
-            $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->imgFile->extension;
-            $this->img = $newFileName;
-            $this->imgFile->saveAs('uploads/slider/' . $newFileName);
+            if($this->imgFile){
+                $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->imgFile->extension;
+                $this->img = $newFileName;
+                
+                //echo $this->img;
+                //exit;
+                
+                $this->imgFile->saveAs('uploads/slider/' . $newFileName);
+            }
+            
+            if($this->logoFile){
+                $newFileName = Yii::$app->security->generateRandomString() . '.' . $this->logoFile->extension;
+                $this->logo = $newFileName;
+                
+                //echo $this->logo;
+                //exit;
+                
+                $this->logoFile->saveAs('uploads/slider/' . $newFileName);
+            }
+            
             $this->save();
             return true;
         } else {
@@ -75,6 +97,9 @@ class Slider extends \yii\db\ActiveRecord
             $rootPath = Yii::$app->getBasePath().'/web';
             if(file_exists($rootPath . '/uploads/slider/' . $this->img)){
                 unlink($rootPath . '/uploads/slider/' . $this->img);
+            }
+            if(file_exists($rootPath . '/uploads/slider/' . $this->logo)){
+                unlink($rootPath . '/uploads/slider/' . $this->logo);
             }
             return true;
         } else {
