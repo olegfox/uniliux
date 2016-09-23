@@ -32,11 +32,11 @@ $config = [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'smtp.uniliux.ru',
-                'username' => 'info@uniliux.ru',
-                'password' => 'nrc837FRY',
-                'port' => '25',
-                'encryption' => 'ssl',
+                'host' => 'smtp.gmail.com',
+                'username' => 'uniliuxfrezza@gmail.com',
+                'password' => 'adsggmvffvxbjjpd',
+                'port' => '587',
+                'encryption' => 'tls',
                 'timeout' => 120
             ],
         ],
