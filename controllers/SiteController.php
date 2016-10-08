@@ -211,7 +211,7 @@ class SiteController extends Controller
         ];
 
         if (!Yii::$app->user->isGuest){
-            $catalogs = Catalog::find()->all();
+            $catalogs = Catalog::find()->allOrder();
             $catalogsBrand = [];
             foreach ($catalogs as $key => $value) {
                 $catalogsBrand[$value['brand']][] = $value;

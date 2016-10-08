@@ -95,10 +95,10 @@ class Slider extends \yii\db\ActiveRecord
     public function beforeDelete() {
         if (parent::beforeDelete()) {
             $rootPath = Yii::$app->getBasePath().'/web';
-            if(file_exists($rootPath . '/uploads/slider/' . $this->img)){
+            if(!empty($this->img) && file_exists($rootPath . '/uploads/slider/' . $this->img)){
                 unlink($rootPath . '/uploads/slider/' . $this->img);
             }
-            if(file_exists($rootPath . '/uploads/slider/' . $this->logo)){
+            if(!empty($this->logo) && file_exists($rootPath . '/uploads/slider/' . $this->logo)){
                 unlink($rootPath . '/uploads/slider/' . $this->logo);
             }
             return true;
