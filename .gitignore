@@ -37,3 +37,4 @@ phpunit.phar
 /config
 /web/assets
 /web/uploads
+/config/db-local.php

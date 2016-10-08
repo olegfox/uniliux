@@ -63,7 +63,8 @@ class NewsSearch extends Factory
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'meta_title', $this->meta_title])
             ->andFilterWhere(['like', 'meta_description', $this->meta_description])
-            ->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords]);
+            ->andFilterWhere(['like', 'meta_keywords', $this->meta_keywords])
+            ->orderBy(['position' => SORT_ASC]);
 
         return $dataProvider;
     }

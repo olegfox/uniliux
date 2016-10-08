@@ -53,7 +53,7 @@ $config = [
             'class' => 'himiklab\thumbnail\EasyThumbnail',
             'cacheAlias' => 'assets/gallery_thumbnails',
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => file_exists(__DIR__ . '/db-local.php') ? require(__DIR__ . '/db-local.php') : require(__DIR__ . '/db.php'),
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

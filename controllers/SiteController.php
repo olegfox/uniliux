@@ -46,7 +46,7 @@ class SiteController extends Controller
     public function actionNews($slug = null)
     {
         $page = Menu::findOne(['slug' => 'novosti']);
-        $news = News::find()->all();
+        $news = News::find()->orderBy(['position' => SORT_ASC])->all();
 
         $params = [
             'news' => $news,

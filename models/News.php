@@ -18,6 +18,7 @@ use app\models\NewsPhoto;
  * @property string $text
  * @property string $description
  * @property string $img
+ * @property integer $position
  */
 class News extends \yii\db\ActiveRecord
 {
@@ -65,7 +66,7 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'date'], 'required'],
+            [['title', 'date', 'position'], 'required'],
             [['date'], 'safe'],
             [['videoUrl'], 'url'],
             [['text', 'description'], 'string'],
@@ -92,7 +93,8 @@ class News extends \yii\db\ActiveRecord
             'img' => 'Изображение',
             'imgFile' => 'Изображение',
             'photos' => 'Фотографии',
-            'videoUrl' => 'Видео (Youtube, Vimeo)'
+            'videoUrl' => 'Видео (Youtube, Vimeo)',
+            'position' => 'Позиция'
         ];
     }
 
