@@ -27,7 +27,7 @@ class SiteController extends Controller
     {
         $sliders = Slider::find()->all();
         $news = News::find()->orderBy(['date' => SORT_DESC])->limit(3)->all();
-        $factories = Factory::find()->orderBy(['id' => SORT_DESC])->all();
+        $factories = Factory::find()->orderBy(['position' => SORT_ASC])->all();
 
         return $this->render('/frontend/site/index', [
             'sliders' => $sliders,
@@ -100,7 +100,7 @@ class SiteController extends Controller
     public function actionFactory($slug = null)
     {
         $page = Menu::findOne(['slug' => 'fabriki']);
-        $factory = Factory::find()->all();
+        $factory = Factory::find()->orderBy(['position' => SORT_ASC])->all();
 
         $params = [
             'factory' => $factory,

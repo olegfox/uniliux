@@ -213,8 +213,6 @@ class Client extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 'image2' => Yii::getAlias('@app/web/frontend/images/image02.png'),
                 'image3' => Yii::getAlias('@app/web/frontend/images/image03.png')
             ])
-            ->attach(Yii::getAlias('@app/web/frontend/files/ShowroomBertolotto.pdf'))
-            ->attach(Yii::getAlias('@app/web/frontend/files/список_фабрик_UNILIUX.pdf'))
             ->setTo($this->email)
             ->setFrom([Yii::$app->params['adminEmail'] => 'Uniliux'])
             ->setSubject('Пароль с сайта uniliux.com')

@@ -34,6 +34,6 @@ class CatalogQuery extends \yii\db\ActiveQuery
     }
 
     public function allOrder(){
-        return parent::orderBy('position')->all();
+        return parent::orderBy(['position' => SORT_ASC])->all();
     }
 }

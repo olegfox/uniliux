@@ -33,12 +33,6 @@ use yii\helpers\Url;
 
 <p>&nbsp;</p>
 
-<p>Для Вашего удобства, в приложении этого письма, Вы найдете список всех фабрик, которые мы представляем. &nbsp;</p>
-
-<p>Кроме того, в приложении Вы найдете брошюру о шоу &ndash; руме Bertolotto Porte в Москве, это уникальное место, которое создано специально для Вас.</p>
-
-<p>&nbsp;</p>
-
 <p>По любым вопросам касательно печатных каталогов, прайсов, условий работы и т.д., вы можете связаться с нами по электронной почте:&nbsp;<a href="mailto:info@uniliux.ru">info@uniliux.ru</a>.</p>
 
 <p>Мы будем рады предоставить вам всю необходимую информацию!</p>
@@ -65,14 +59,9 @@ use yii\helpers\Url;
 
 <p>СЛЕДУЙТЕ ЗА НАМИ!</p>
 
-<p><img src="<?= $message->embed($image1); ?>" style="height:37px; width:37px" />&nbsp;<img src="<?= $message->embed($image3); ?>" style="height:37px; width:37px" />&nbsp;<img src="<?= $message->embed($image2); ?>" style="height:42px; width:42px" /></p>
+<p>
+<a href="https://www.facebook.com/uniliux/?ref=bookmarks"><img src="<?= $message->embed($image1); ?>" style="height:37px; width:37px" /></a>&nbsp;<a href="https://www.instagram.com/uniliux_byfrezza/"><img src="<?= $message->embed($image3); ?>" style="height:37px; width:37px" /></a>&nbsp;<a href="https://www.youtube.com/channel/UCjs30SoitT-6h986qLNMpUg"><img src="<?= $message->embed($image2); ?>" style="height:42px; width:42px" /></a>
+</p>
 
-<p>Мы ждем вас в шоуруме BERTOLOTTO PORTE</p>
-
-<p>по адресу: 119192,&nbsp;Москва, Ломоносовский проспект, 29 корпус 1</p>
-
-<p><a href="https://www.google.com/url?q=https://drive.google.com/folderview?id%3D0B_S8XTluw9F6ZUlfN1hTYTdiYjA%26usp%3Dsharing&amp;sa=D&amp;ust=1472768695757000&amp;usg=AFQjCNGypCeVvUXQzQ2_Icz052j74Mg4qg">ПОСМОТРИТЕ ФОТОГРАФИИ ШОУРУМА</a></p>
-
-<p><a href="https://www.google.com/url?q=http://www.bertolotto.com/%25C2%25A0&amp;sa=D&amp;ust=1472768695758000&amp;usg=AFQjCNGM6ZNDxFDg40qYLSwuZPpnuSXpHA">www.bertolotto.com</a></p>
 </body>
 </html>
